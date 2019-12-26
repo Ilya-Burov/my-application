@@ -18,15 +18,15 @@ public class UserActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        // Передаем в суперкласс
+        // РџРµСЂРµРґР°РµРј РІ СЃСѓРїРµСЂРєР»Р°СЃСЃ
         super.onCreate(savedInstanceState);
-        // Устанавливаем отображаемый слой 
+        // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РѕС‚РѕР±СЂР°Р¶Р°РµРјС‹Р№ СЃР»РѕР№ 
         setContentView(R.layout.activity_user);
 
         final Intent data = getIntent();
 
         fillViews(data);
-         // Устанавливаем обработку нажатия
+         // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РѕР±СЂР°Р±РѕС‚РєСѓ РЅР°Р¶Р°С‚РёСЏ
         findViewById(R.id.button_save).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,7 +34,7 @@ public class UserActivity extends AppCompatActivity {
                 EditText email = findViewById(R.id.editText_email);
 
                 if (!name.getText().toString().isEmpty() && !email.getText().toString().isEmpty()) {
-                    // Создаем юзера и намерение 
+                    // РЎРѕР·РґР°РµРј СЋР·РµСЂР° Рё РЅР°РјРµСЂРµРЅРёРµ 
                     User user = new User();
                     Intent intent = new Intent();
 
@@ -44,7 +44,7 @@ public class UserActivity extends AppCompatActivity {
                     }
                     else if (data.getStringExtra(STATUS_KEY).equals(STATUS_NEW))
                         intent.putExtra(STATUS_KEY, STATUS_NEW);
-// Устанавливаем значения полей
+// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р·РЅР°С‡РµРЅРёСЏ РїРѕР»РµР№
                     user.setName(name.getText().toString());
                     user.setSurname(((EditText)findViewById(R.id.editText_surname)).getText().toString());
                     user.setEmail(((EditText)findViewById(R.id.editText_email)).getText().toString());
@@ -66,10 +66,10 @@ public class UserActivity extends AppCompatActivity {
     }
 
     private void fillViews(Intent data) {
-  // Если статус keys совпадают создаем юзера
+  // Р•СЃР»Рё СЃС‚Р°С‚СѓСЃ keys СЃРѕРІРїР°РґР°СЋС‚ СЃРѕР·РґР°РµРј СЋР·РµСЂР°
         if (data.getStringExtra(STATUS_KEY).equals(STATUS_OLD)) {
             User user = (User) data.getSerializableExtra(UserActivity.USER_KEY);
-//Устанавливаем значения полей юзера отображаемых на activity 
+//РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р·РЅР°С‡РµРЅРёСЏ РїРѕР»РµР№ СЋР·РµСЂР° РѕС‚РѕР±СЂР°Р¶Р°РµРјС‹С… РЅР° activity 
             ((EditText)findViewById(R.id.editText_name)).setText(user.getName());
             ((EditText)findViewById(R.id.editText_surname)).setText(user.getSurname());
             ((EditText)findViewById(R.id.editText_email)).setText(user.getEmail());

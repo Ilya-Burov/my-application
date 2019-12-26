@@ -25,24 +25,24 @@ public class MainActivity extends AppCompatActivity implements DataHolder, MyCli
     private MyClickRecyclerAdapter recViewAdapter;
 
     @Override
-    // главный метод при открытии activity 
+    // РіР»Р°РІРЅС‹Р№ РјРµС‚РѕРґ РїСЂРё РѕС‚РєСЂС‹С‚РёРё activity 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Устанавливаем слой отображаемый
+        // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЃР»РѕР№ РѕС‚РѕР±СЂР°Р¶Р°РµРјС‹Р№
         setContentView(R.layout.activity_main);
 
         usersBase = UsersBase.loadFromDataBase(getApplicationContext());
-        // Создаем список типа Recycle View
+        // РЎРѕР·РґР°РµРј СЃРїРёСЃРѕРє С‚РёРїР° Recycle View
         RecyclerView recViewUsers = findViewById(R.id.recView_users);
         recViewAdapter = new MyClickRecyclerAdapter(this, getLayoutInflater(), this);
         recViewUsers.setAdapter(recViewAdapter);
         recViewUsers.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recViewUsers.setHasFixedSize(true);
-  // свайп
+  // СЃРІР°Р№Рї
         MySwipeCallback swipeCallback = new MySwipeCallback(recViewAdapter);
         ItemTouchHelper itemTouch = new ItemTouchHelper(swipeCallback);
         itemTouch.attachToRecyclerView(recViewUsers);
-// Обработчик нажатий кнопки, перемещающей на User Activity
+// РћР±СЂР°Р±РѕС‚С‡РёРє РЅР°Р¶Р°С‚РёР№ РєРЅРѕРїРєРё, РїРµСЂРµРјРµС‰Р°СЋС‰РµР№ РЅР° User Activity
         findViewById(R.id.fab_add).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,14 +50,14 @@ public class MainActivity extends AppCompatActivity implements DataHolder, MyCli
             }
         });
     }
-    // Получаем юзера по индексу
+    // РџРѕР»СѓС‡Р°РµРј СЋР·РµСЂР° РїРѕ РёРЅРґРµРєСЃСѓ
     @Override
     public User getUser(int index) {
         return usersBase.getUser(index);
     }
 
     @Override
-// Получаем юзера по объекту
+//   РџРѕР»СѓС‡Р°РµРј СЋР·РµСЂР° РїРѕ РѕР±СЉРµРєС‚Сѓ
 
     public void addUser(User user) {
         addToDataBase(user);
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements DataHolder, MyCli
     }
 
     @Override
-// Удаляем  юзера по индексу
+// РЈРґР°Р»СЏРµРј  СЋР·РµСЂР° РїРѕ РёРЅРґРµРєСЃСѓ
 
     public void deleteUser(int index) {
         deleteFromDataBase(index);
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements DataHolder, MyCli
     }
 
     @Override
-// Обновляем юзера
+// РћР±РЅРѕРІР»СЏРµРј СЋР·РµСЂР°
 
     public void refreshUser(User userNew) {
         User userOld = usersBase.getUserByID(userNew.getId());
@@ -95,15 +95,15 @@ public class MainActivity extends AppCompatActivity implements DataHolder, MyCli
     }
 
     @Override
-// Получение размера
+// РџРѕР»СѓС‡РµРЅРёРµ СЂР°Р·РјРµСЂР°
     public int getSize() {
         return usersBase.getSize();
     }
-// Добавление в базу данных юзера 
+// Р”РѕР±Р°РІР»РµРЅРёРµ РІ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… СЋР·РµСЂР° 
     private void addToDataBase(User user) {
         DBHelper dbHelper = new DBHelper(getApplicationContext());
         SQLiteDatabase database = dbHelper.getWritableDatabase();
-        // Заполняем поля полученные с помощью методов get
+        // Р—Р°РїРѕР»РЅСЏРµРј РїРѕР»СЏ РїРѕР»СѓС‡РµРЅРЅС‹Рµ СЃ РїРѕРјРѕС‰СЊСЋ РјРµС‚РѕРґРѕРІ get
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(DBHelper.KEY_NAME, user.getName());
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements DataHolder, MyCli
         cursor.close();
         database.close();
     }
-   // Удаление из базы данных по индексу
+   // РЈРґР°Р»РµРЅРёРµ РёР· Р±Р°Р·С‹ РґР°РЅРЅС‹С… РїРѕ РёРЅРґРµРєСЃСѓ
 
     private void deleteFromDataBase(int index) {
         DBHelper dbHelper = new DBHelper(getApplicationContext());
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements DataHolder, MyCli
 
         database.close();
     }
-    // Обновление базы данных
+    // РћР±РЅРѕРІР»РµРЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С…
 
     private void updateDatabase(User user) {
         DBHelper dbHelper = new DBHelper(getApplicationContext());
@@ -158,13 +158,13 @@ public class MainActivity extends AppCompatActivity implements DataHolder, MyCli
     public void onItemClick(View view, int index) {
         startUserActivity(index);
     }
-  // Запуск юзер активити для создания нового юзера
+  // Р—Р°РїСѓСЃРє СЋР·РµСЂ Р°РєС‚РёРІРёС‚Рё РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РЅРѕРІРѕРіРѕ СЋР·РµСЂР°
     private void startUserActivity() {
         Intent intent = new Intent(this, UserActivity.class);
         intent.putExtra(UserActivity.STATUS_KEY, UserActivity.STATUS_NEW);
         startActivityForResult(intent, 0);
     }
-// Запуск юзер активити для редактирования старого
+// Р—Р°РїСѓСЃРє СЋР·РµСЂ Р°РєС‚РёРІРёС‚Рё РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ СЃС‚Р°СЂРѕРіРѕ
     private void startUserActivity(int id) {
         Intent intent = new Intent(this, UserActivity.class);
         intent.putExtra(UserActivity.STATUS_KEY, UserActivity.STATUS_OLD);

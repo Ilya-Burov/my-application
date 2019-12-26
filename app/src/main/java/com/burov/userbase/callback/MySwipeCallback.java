@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
 import com.burov.userbase.interfaces.ItemTouchHelperAdapter;
-// Класс для свайпа 
+// РљР»Р°СЃСЃ РґР»СЏ СЃРІР°Р№РїР° 
 public class MySwipeCallback extends ItemTouchHelper.Callback {
     private final ItemTouchHelperAdapter mAdapter;
 
@@ -14,7 +14,7 @@ public class MySwipeCallback extends ItemTouchHelper.Callback {
     }
 
     @Override
-// Устанавливаем флаги для свайпа влева и право
+// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С„Р»Р°РіРё РґР»СЏ СЃРІР°Р№РїР° РІР»РµРІР° Рё РїСЂР°РІРѕ
     public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
         int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
         int swipeFlags = ItemTouchHelper.START | ItemTouchHelper.END;
@@ -27,7 +27,7 @@ public class MySwipeCallback extends ItemTouchHelper.Callback {
     }
 
     @Override
- // Удаляем запись при свайпе
+ // РЈРґР°Р»СЏРµРј Р·Р°РїРёСЃСЊ РїСЂРё СЃРІР°Р№РїРµ
     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
         mAdapter.onItemDismiss((Integer) viewHolder.itemView.getTag());
     }

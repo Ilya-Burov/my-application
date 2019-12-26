@@ -2,7 +2,7 @@ package com.burov.userbase.pojo;
 
 import java.io.Serializable;
 import java.util.Objects;
-//создаем поля юзера, геттеры и сеттеры
+//СЃРѕР·РґР°РµРј РїРѕР»СЏ СЋР·РµСЂР°, РіРµС‚С‚РµСЂС‹ Рё СЃРµС‚С‚РµСЂС‹
 public class User implements Serializable {
     private int id;
     private String name;
@@ -78,7 +78,7 @@ public class User implements Serializable {
     }
 
     @Override
-    // проверяем на соответствие объекты
+    // РїСЂРѕРІРµСЂСЏРµРј РЅР° СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРµ РѕР±СЉРµРєС‚С‹
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

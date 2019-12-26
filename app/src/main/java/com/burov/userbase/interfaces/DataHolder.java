@@ -1,5 +1,5 @@
 package com.burov.userbase.interfaces;
-//интерфейс dataHolder
+//РёРЅС‚РµСЂС„РµР№СЃ dataHolder
 import com.burov.userbase.pojo.User;
 
 public interface DataHolder {

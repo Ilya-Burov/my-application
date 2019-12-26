@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsersBase {
-    //создаем список юзеров
+    //СЃРѕР·РґР°РµРј СЃРїРёСЃРѕРє СЋР·РµСЂРѕРІ
     private List<User> users = new ArrayList<>();
-    // Открываем базу данных
+    // РћС‚РєСЂС‹РІР°РµРј Р±Р°Р·Сѓ РґР°РЅРЅС‹С…
     public static UsersBase loadFromDataBase(Context context) {
         UsersBase usersBase = new UsersBase();
 
@@ -29,7 +29,7 @@ public class UsersBase {
         int countryIndex = cursor.getColumnIndex(DBHelper.KEY_COUNTRY);
         int cityIndex = cursor.getColumnIndex(DBHelper.KEY_CITY);
         int balanceIndex = cursor.getColumnIndex(DBHelper.KEY_BALANCE);
-        // Пробегаемся по базе данных и устанавливаем поля юзера
+        // РџСЂРѕР±РµРіР°РµРјСЃСЏ РїРѕ Р±Р°Р·Рµ РґР°РЅРЅС‹С… Рё СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РїРѕР»СЏ СЋР·РµСЂР°
         while (cursor.moveToNext()) {
             User user = new User();
 
@@ -41,7 +41,7 @@ public class UsersBase {
             user.setCountry(cursor.getString(countryIndex));
             user.setCity(cursor.getString(cityIndex));
             user.setBalance(Double.parseDouble(cursor.getString(balanceIndex)));
-            // Добавляем юзера в список
+            // Р”РѕР±Р°РІР»СЏРµРј СЋР·РµСЂР° РІ СЃРїРёСЃРѕРє
             usersBase.addUser(user);
         }
 
@@ -50,15 +50,15 @@ public class UsersBase {
 
         return usersBase;
     }
-    // Добавление юзера
+    // Р”РѕР±Р°РІР»РµРЅРёРµ СЋР·РµСЂР°
     public void addUser(User user) {
         users.add(user);
     }
-    // Удаление юзера по индексу
+    // РЈРґР°Р»РµРЅРёРµ СЋР·РµСЂР° РїРѕ РёРЅРґРµРєСЃСѓ
     public void removeUser(int index) {
         users.remove(index);
     }
-    // Удаление юзера по объекту
+    // РЈРґР°Р»РµРЅРёРµ СЋР·РµСЂР° РїРѕ РѕР±СЉРµРєС‚Сѓ
     public void removeUser(User user) {
         for (int i = 0; i < users.size(); i++) {
             User tmp = users.get(i);

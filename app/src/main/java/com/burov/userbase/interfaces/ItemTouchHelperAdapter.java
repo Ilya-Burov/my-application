@@ -1,5 +1,5 @@
 package com.burov.userbase.interfaces;
-//Интерфейс для свайпа
+//РРЅС‚РµСЂС„РµР№СЃ РґР»СЏ СЃРІР°Р№РїР°
 public interface ItemTouchHelperAdapter {
     void onItemDismiss(int position);
 }

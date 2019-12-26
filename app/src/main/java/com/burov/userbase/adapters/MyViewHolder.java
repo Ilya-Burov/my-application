@@ -6,23 +6,23 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.burov.userbase.R;
-// Обязательные поля
+// РћР±СЏР·Р°С‚РµР»СЊРЅС‹Рµ РїРѕР»СЏ
 public class MyViewHolder extends RecyclerView.ViewHolder {
     private TextView name;
     private TextView email;
 
     public MyViewHolder(@NonNull View itemView) {
-        // передаем в суперкласс 
+        // РїРµСЂРµРґР°РµРј РІ СЃСѓРїРµСЂРєР»Р°СЃСЃ 
         super(itemView);
-        //Находим name и email по view
+        //РќР°С…РѕРґРёРј name Рё email РїРѕ view
         name = itemView.findViewById(R.id.textView_name);
         email = itemView.findViewById(R.id.textView_email);
     }
-    // Установка имени
+    // РЈСЃС‚Р°РЅРѕРІРєР° РёРјРµРЅРё
     public void setName(String nameStr) {
         this.name.setText(nameStr);
     }
-    // Установка email
+    // РЈСЃС‚Р°РЅРѕРІРєР° email
     public void setEmail(String emailStr) {
         this.email.setText(emailStr);
     }

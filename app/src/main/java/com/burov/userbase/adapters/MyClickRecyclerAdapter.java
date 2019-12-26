@@ -19,7 +19,7 @@ public class MyClickRecyclerAdapter extends RecyclerView.Adapter<MyViewHolder> i
     private final MyClickListener myClickListener;
 
     public MyClickRecyclerAdapter(DataHolder dataHolder, LayoutInflater mInflater, MyClickListener myClickListener) {
-        // Создаем слабые ссылки(Weak reference)
+        // РЎРѕР·РґР°РµРј СЃР»Р°Р±С‹Рµ СЃСЃС‹Р»РєРё(Weak reference)
         this.dataHolder = new WeakReference<>(dataHolder);
         this.mInflater = new WeakReference<>(mInflater);
         this.myClickListener = myClickListener;
@@ -63,14 +63,14 @@ public class MyClickRecyclerAdapter extends RecyclerView.Adapter<MyViewHolder> i
     }
 
     @Override
-    // Обработка нажатий
+    // РћР±СЂР°Р±РѕС‚РєР° РЅР°Р¶Р°С‚РёР№
     public void onClick(View v) {
         Integer position = (Integer)v.getTag();
         myClickListener.onItemClick(v, position);
     }
 
     @Override
-    // Удаление юзера
+    // РЈРґР°Р»РµРЅРёРµ СЋР·РµСЂР°
     public void onItemDismiss(int index) {
         if (dataHolder != null) {
             DataHolder l = dataHolder.get();
