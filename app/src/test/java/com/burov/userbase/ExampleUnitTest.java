@@ -3,15 +3,47 @@ package com.burov.userbase;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import com.burov.userbase.data.UsersBase;
+import com.burov.userbase.pojo.User;
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
- */
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void add() {
+        UsersBase newUsersBase= new UsersBase();
+         List<User> users = new ArrayList<>();
+         User user1 = new User();
+         newUsersBase.addUser(user1);
+         int expected =1;
+         assertEquals(expected,newUsersBase.getSize() );
     }
+    @Test
+    public void remove(){
+        UsersBase newUsersBase= new UsersBase();
+        List<User> users = new ArrayList<>();
+        User user1 = new User();
+        newUsersBase.addUser(user1);
+        newUsersBase.removeUser(user1);
+        assertEquals(0, newUsersBase.getSize());
+    }
+
+    @Test
+    public void addCountry(){
+        User user2 = new User();
+        user2.setCountry("Russia");
+        String bal = "Russia";
+        assertEquals(bal, user2.getBalance());
+
+    }
+
+
+
+
+
+
+
 }
+
