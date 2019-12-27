@@ -35,7 +35,7 @@ public class ExampleUnitTest {
         User user2 = new User();
         user2.setCountry("Russia");
         String bal = "Russia";
-        assertEquals(bal, user2.getBalance());
+        assertEquals(bal, user2.getCountry());
 
     }
 
